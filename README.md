@@ -2,6 +2,8 @@
 
 A new Flutter application.
 
+Design by https://dribbble.com/shots/4585382-Simple-BMI-Calculator.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
