@@ -16,6 +16,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender _selectedGender;
+  int _height = 180;
 
   void updateGender(Gender gender) {
     if (gender == _selectedGender) {
@@ -70,6 +71,41 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: ReusableCard(
               color: kActiveCardColor,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'HEIGHT',
+                    style: kLabelTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    children: [
+                      Text(
+                        _height.toString(),
+                        style: kNumberTextStyle,
+                      ),
+                      Text(
+                        'cm',
+                        style: kLabelTextStyle,
+                      )
+                    ],
+                  ),
+                  Slider(
+                    value: _height.toDouble(),
+                    min: 120.0,
+                    max: 220.0,
+                    activeColor: kTintPink,
+                    inactiveColor: kMutedGray,
+                    onChanged: (double newValue) {
+                      setState(() {
+                        _height = newValue.round();
+                      });
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
